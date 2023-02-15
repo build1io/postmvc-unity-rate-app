@@ -2,6 +2,11 @@ namespace Build1.PostMVC.Unity.RateApp
 {
     public enum RateAppFailReason
     {
-        PlatformError = 1,
+        UserCancelled = 1,
+
+        IOSVersionNotCompatibleOrStoreKitNotLinked = 10,
+
+        AndroidReviewFlowRequestFail = 20,
+        AndroidReviewFlowLaunchFail  = 21
     }
 }

@@ -25,8 +25,8 @@ namespace Build1.PostMVC.Unity.RateApp.Impl
             }
             else
             {
-                Log.Debug($"Fail: {RateAppFailReason.PlatformError}");
-                Dispatcher.Dispatch(RateAppEvent.Fail, RateAppFailReason.PlatformError);
+                Log.Debug($"Fail: {RateAppFailReason.UserCancelled}");
+                Dispatcher.Dispatch(RateAppEvent.Fail, RateAppFailReason.UserCancelled);
             }
         }
     }

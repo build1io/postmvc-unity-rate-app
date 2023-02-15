@@ -44,7 +44,7 @@ namespace Build1.PostMVC.Unity.RateApp.Impl
 
             if (requestFlowOperation.Error != ReviewErrorCode.NoError)
             {
-                Dispatcher.Dispatch(RateAppEvent.Fail, RateAppFailReason.PlatformError);
+                Dispatcher.Dispatch(RateAppEvent.Fail, RateAppFailReason.AndroidReviewFlowRequestFail);
                 yield break;
             }
 
@@ -54,7 +54,7 @@ namespace Build1.PostMVC.Unity.RateApp.Impl
             yield return launchFlowOperation;
 
             if (launchFlowOperation.Error != ReviewErrorCode.NoError)
-                Dispatcher.Dispatch(RateAppEvent.Fail, RateAppFailReason.PlatformError);
+                Dispatcher.Dispatch(RateAppEvent.Fail, RateAppFailReason.AndroidReviewFlowLaunchFail);
             else
                 Dispatcher.Dispatch(RateAppEvent.Success);
         }

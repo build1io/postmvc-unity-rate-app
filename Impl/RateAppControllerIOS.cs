@@ -16,7 +16,7 @@ namespace Build1.PostMVC.Unity.RateApp.Impl
             if (success)
                 Dispatcher.Dispatch(RateAppEvent.Success);
             else
-                Dispatcher.Dispatch(RateAppEvent.Fail, RateAppFailReason.PlatformError);
+                Dispatcher.Dispatch(RateAppEvent.Fail, RateAppFailReason.IOSVersionNotCompatibleOrStoreKitNotLinked);
         }
     }
 }
