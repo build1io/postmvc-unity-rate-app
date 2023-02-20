@@ -17,7 +17,7 @@ namespace Build1.PostMVC.Unity.RateApp.Impl
         {
             Log.Debug("Simulating RateApp in Editor...");
             
-            var success = EditorUtility.DisplayDialog("Rate App", $"Would you like to rate ${Application.productName}?", "Rate", "Not Now");
+            var success = EditorUtility.DisplayDialog("Rate App", $"Would you like to rate {Application.productName}?", "Rate", "Not Now");
             if (success)
             {
                 Log.Debug("Success");
