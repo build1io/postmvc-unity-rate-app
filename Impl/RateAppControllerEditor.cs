@@ -13,8 +13,18 @@ namespace Build1.PostMVC.Unity.RateApp.Impl
         [Log(LogLevel.Warning)] public ILog             Log        { get; set; }
         [Inject]                public IEventDispatcher Dispatcher { get; set; }
 
+        public bool StoreReviewRequested { get; private set; }
+        
         public void RequestStoreReview()
         {
+            if (StoreReviewRequested)
+            {
+                Log.Warn("Store review already requested");
+                return;
+            }
+
+            StoreReviewRequested = true;
+            
             Log.Debug("Simulating RateApp in Editor...");
             
             var success = EditorUtility.DisplayDialog("Rate App", $"Would you like to rate {Application.productName}?", "Rate", "Not Now");

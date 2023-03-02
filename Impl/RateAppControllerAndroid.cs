@@ -14,6 +14,8 @@ namespace Build1.PostMVC.Unity.RateApp.Impl
         [Inject] public IEventDispatcher   Dispatcher        { get; set; }
         [Inject] public ICoroutineProvider CoroutineProvider { get; set; }
 
+        public bool StoreReviewRequested { get; private set; }
+        
         private Coroutine _coroutine;
 
         [PreDestroy]
@@ -28,6 +30,10 @@ namespace Build1.PostMVC.Unity.RateApp.Impl
 
         public void RequestStoreReview()
         {
+            if (StoreReviewRequested)
+                return;
+
+            StoreReviewRequested = true;
             CoroutineProvider.StartCoroutine(OpenReviewDialogImpl(), out _coroutine);
         }
 

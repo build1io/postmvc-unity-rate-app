@@ -10,8 +10,15 @@ namespace Build1.PostMVC.Unity.RateApp.Impl
     {
         [Inject] public IEventDispatcher Dispatcher { get; set; }
 
+        public bool StoreReviewRequested { get; private set; }
+        
         public void RequestStoreReview()
         {
+            if (StoreReviewRequested)
+                return;
+
+            StoreReviewRequested = true;
+            
             var success = Device.RequestStoreReview();
             if (success)
                 Dispatcher.Dispatch(RateAppEvent.Success);
